@@ -87,7 +87,6 @@ section {
 }
 
 button {
-  background-color: DodgerBlue;
     border: none;
     color: white;
     padding: 0.9rem 1.5rem;
@@ -95,13 +94,14 @@ button {
     font-size: 1.8rem;
     cursor: pointer;
     transition: 0.5s;
+    margin: 0.5rem;
 }
 
 button:hover {
-  background-color: RoyalBlue;
+
 }
 
-button::after {
+.picker::after {
   display: inline-block;
   font-style: normal;
   font-variant: normal;
@@ -109,6 +109,37 @@ button::after {
   -webkit-font-smoothing: antialiased;
   font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f1fb";
   padding: 0 0 0 0.2rem;
+}
+
+.picker {
+  background-color: #00b894;
+}
+
+.picker:hover {
+  background-color: #55efc4;
+}
+
+.options {
+  display: flex;
+}
+
+.options button {
+  background-color: #f7f1e3;
+  color: #333;
+  display: flex;
+  align-items: center;
+  opacity: 0.5;
+}
+
+.options button em {
+  font-size: 1rem;
+  font-style: normal;
+  padding: 0.5rem;
+}
+
+.options .selected {
+  border: 2px solid #84817a;
+  opacity: 1;
 }
 
 /* FOOTER */
