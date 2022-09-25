@@ -10,7 +10,6 @@ let colourHistoryArray = [];
 let addingHTMLArray = [];
 
 $(document).ready(function() {
-  // copiedAlertDiv.css("height", 0);
   eyeDropperButton.on("click", function(e) {
     eyeDpper();
   });
@@ -24,7 +23,6 @@ const eyeDpper = () => {
   eyeDropper.open()
   .then(colorSelectionResult => {
       // returns hex color value (#RRGGBB) of the selected pixel
-      // console.log(colorSelectionResult.sRGBHex);
       selectedColour = colorSelectionResult.sRGBHex;
       colourValuePreview.css("background", selectedColour)
 
@@ -46,11 +44,12 @@ const eyeDpper = () => {
 }
 
 const copyValue = () => {
-  navigator.clipboard.writeText(colourValueText.text()).then(function() {
-    console.log('Async: Copying to clipboard was successful!');
+  navigator.clipboard.writeText(colourValueText.text())
+  .then(function() {
     copiedAlertDiv.css("background", colourValueText.text())
     copiedAlertDiv.show("slow").delay(500).hide("slow");
-  }, function(err) {
-    console.error('Async: Could not copy text: ', err);
+  })
+  .catch(error => {
+    console.error('Async: Could not copy text: ', error);
   });
 }

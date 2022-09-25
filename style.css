@@ -152,7 +152,7 @@ button {
 
 .copiedAlert {
   position: absolute;
-  top:30%;
+  top:0;
   z-index: 1000;
   width: 100%;
   text-align: center;
