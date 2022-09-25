@@ -32,6 +32,12 @@ nav {
   color: #333;
 }
 
+@media (min-width:320px)  {
+  nav {
+    font-size: 2.5rem;
+  }
+}
+
 section {
 	display: flex;
 	flex-direction: column;
@@ -39,7 +45,7 @@ section {
 	height: 100vh;
 	gap: 10px;
 	max-width: 800px;
-	margin: 2rem auto;
+	margin: 2rem auto 5rem auto;
 	width: 100vw;
 }
 
