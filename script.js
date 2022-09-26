@@ -49,11 +49,7 @@ $(document).ready(function() {
 const eyeDpper = () => {
   eyeDropper.open()
   .then(colorSelectionResult => {
-      // returns hex color value (#RRGGBB) of the selected pixel
-      debugger;
-
       if($("body").hasClass("RGB")) {
-        debugger;
         selectedColour = "rgb(" + convertHEX(colorSelectionResult.sRGBHex) + ")";
       } else {
         selectedColour = colorSelectionResult.sRGBHex;
@@ -89,11 +85,14 @@ const copyValue = () => {
 }
 
 const convertHEX = (hexValue) => {
-  var r = parseInt(hexValue.slice(1, 3), 16),
-      g = parseInt(hexValue.slice(3, 5), 16),
-      b = parseInt(hexValue.slice(5, 7), 16);
-  
-      return [r,g, b];
+  if(hexValue.charAt(0) == "#")
+    hexValue = hexValue.substring(1);
+  const bigint = parseInt(hexValue, 16);
+  const r = (bigint >> 16) & 255;
+  const g = (bigint >> 8) & 255;
+  const b = bigint & 255;
+      
+  return [r,g, b];
 }
 
 function convertRGB(rgbValue){
