@@ -60,8 +60,8 @@ section {
 }
 
 .colour-preview {
-	height: 250px;
-	width: 250px;
+	height: 300px;
+	width: 300px;
 	position: relative;
 	cursor: pointer;
 	background: #9b59b6;

@@ -1,6 +1,6 @@
 const eyeDropper = new EyeDropper();
 
-let selectedColour ="";
+let selectedColour ="#9b59b6";
 const colourValueText =  $(".colour-value");
 const colourValuePreview = $(".colour-preview");
 const eyeDropperButton = $("#eyeDropper");
@@ -19,9 +19,13 @@ $(document).ready(function() {
     if(selectedButton.textContent == "RGB (rgb(1, 2, 3)") {
       $("body").removeClass("HEX");
       $("body").addClass("RGB");
+      selectedColour = convertHEX(selectedColour);
+      colourValueText.text("rgb(" + selectedColour + ")");
     } else {
-      $("body").removeClass("RGB")
-      $("body").addClass("HEX")
+      $("body").removeClass("RGB");
+      $("body").addClass("HEX");
+      selectedColour = convertRGB(selectedColour);
+      colourValueText.text("#" + selectedColour);
     }
   })
 
@@ -50,7 +54,7 @@ const eyeDpper = () => {
 
       if($("body").hasClass("RGB")) {
         debugger;
-        selectedColour = convertHEX(colorSelectionResult.sRGBHex);
+        selectedColour = "rgb(" + convertHEX(colorSelectionResult.sRGBHex) + ")";
       } else {
         selectedColour = colorSelectionResult.sRGBHex;
       }
@@ -89,5 +93,9 @@ const convertHEX = (hexValue) => {
       g = parseInt(hexValue.slice(3, 5), 16),
       b = parseInt(hexValue.slice(5, 7), 16);
   
-      return "rgb(" + r + ", " + g + ", " + b + ")";
+      return [r,g, b];
 }
+
+function convertRGB(rgbValue){
+  return ((1 << 24) + (rgbValue[0] << 16) + (rgbValue[1] << 8) + rgbValue[2]).toString(16).slice(1);
+ }
