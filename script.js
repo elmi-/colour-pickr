@@ -1,11 +1,12 @@
-let eyeDropper = new EyeDropper();
+const eyeDropper = new EyeDropper();
 
 let selectedColour ="";
-let colourValueText =  $(".colour-value");
-let colourValuePreview = $(".colour-preview");
-let eyeDropperButton = $("#eyeDropper");
-let copiedAlertDiv = $(".copiedAlert");
-let optionButtons = $(".options button")
+const colourValueText =  $(".colour-value");
+const colourValuePreview = $(".colour-preview");
+const eyeDropperButton = $("#eyeDropper");
+const copiedAlertDiv = $(".copiedAlert");
+const optionButtons = $(".options button");
+const infoButton = $(".info-button");
 
 let colourHistoryArray = [];
 let addingHTMLArray = [];
@@ -30,6 +31,14 @@ $(document).ready(function() {
 
   colourValuePreview.on("click", function(e) {
     copyValue();
+  });
+
+  infoButton.on("click", function(e) {
+    $(".info-content, .info-overlay").addClass("active");
+  });
+
+  $(".close, .info-overlay").on("click", function(e) {
+    $(".info-content, .info-overlay").removeClass("active");
   })
 });
 
