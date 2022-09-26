@@ -3,4 +3,3 @@
 
 ## Screenshots
 ![demo of colour pickr](https://github.com/elmi-/colour-pickr/blob/main/docs/demo.gif)
-![screenshot](https://github.com/elmi-/colour-pickr/blob/main/docs/screenshot.png)
