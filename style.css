@@ -246,3 +246,10 @@ button {
     width: auto;
   }
 }
+
+@media (pointer:coarse) {
+  /* custom css for "touch targets" */
+  .mobile-overlay, .mobile-content {
+    visibility: visible!important;
+  }
+}
